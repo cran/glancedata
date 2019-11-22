@@ -13,7 +13,7 @@
 ##'     generating the plot.
 ##' @return A GGplot object.
 ##' @importFrom ggplot2 ggplot theme_void theme_bw coord_flip qplot
-##'     xlab
+##'     xlab ylab
 ##' @importFrom purrr map map2
 ##' @importFrom dplyr select_if
 ##' @importFrom forcats fct_inorder
@@ -71,7 +71,7 @@ plot_discrete_vars <- function(x,
         map(~ .x + theme_bw() + coord_flip())
 
     ## Add names
-    x <- map2(x, nam, function(u, v) u + xlab(v))
+    x <- map2(x, nam, function(u, v) u + xlab(v) + ylab(''))
 
 
     x <- gridExtra::grid.arrange(grobs = x,

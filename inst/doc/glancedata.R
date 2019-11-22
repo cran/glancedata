@@ -1,10 +1,10 @@
-## ---- include = FALSE----------------------------------------------------
+## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ---- echo = FALSE, message=FALSE----------------------------------------
+## ---- echo = FALSE, message=FALSE---------------------------------------------
 
 library(dplyr)
 
@@ -63,7 +63,7 @@ pkg_list %>%
   knitr::kable()
   
 
-## ----setup, message=FALSE, cache=TRUE------------------------------------
+## ----setup, message=FALSE, cache=TRUE-----------------------------------------
 library(dplyr)
 library(tidyr)
 library(knitr)
@@ -78,7 +78,7 @@ kable(head(sample_data))
 
 
 
-## ---- eval = FALSE, dependson= "setup"-----------------------------------
+## ---- eval = FALSE, dependson= "setup"----------------------------------------
 #  ## Load package
 #  library(skimr)
 #  
@@ -86,7 +86,7 @@ kable(head(sample_data))
 #  skim(sample_data)
 #  
 
-## ---- dependson = "setup", echo = FALSE, results='asis', message=FALSE----
+## ---- dependson = "setup", echo = FALSE, results='asis', message=FALSE--------
 
 library(glancedata)
 library(dplyr)
@@ -94,31 +94,32 @@ library(tidyr)
 library(knitr)
 library(skimr)
 
-tmp <- skim(sample_data)
-
-kable(tmp)
-
-tmp %>%
-  filter(stat == "hist") %>%
-  select(-value, -level, -stat) %>%
-  # spread(stat, value) %>%
-  kable()
-
-
-  
+skim(sample_data)
 
 
 
-## ---- dependson= "setup"-------------------------------------------------
+
+## ---- dependson= "setup"------------------------------------------------------
 
 library(glancedata)
 
 glance_data(sample_data)
 
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 library(glancedata)
 
 glance_data_in_workbook(sample_data)
 
+
+## ---- eval = FALSE------------------------------------------------------------
+#  
+#  library(readr)
+#  library(dplyr)
+#  
+#  ## Read data with dates from FiveThirtyEight
+#  polls <-
+#    read_csv("https://github.com/fivethirtyeight/data/tree/master/polls")
+#  
+#  
 
